@@ -1,5 +1,10 @@
 --CYANIDE
 
+--Sounds
+local sound = Instance.new("Sound")
+sound.SoundId = "http://www.roblox.com/asset/?id=9102707443"
+sound:Play()
+
 --Loadstrings (they will become loadstrings soom lmfao)
 
 --cyanide webhook
