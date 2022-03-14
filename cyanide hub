@@ -1,12 +1,19 @@
 --CYANIDE
 
---Sounds
 local sound = Instance.new("Sound")
-sound.SoundId = "http://www.roblox.com/asset/?id=9102707443"
-sound:Play()
-if not sound.IsLoaded then
-	sound.Loaded:wait()
-end
+
+sound.Name = "Sound"
+sound.SoundId = "http://www.roblox.com/asset/?id=9102707443" -- Song ID at end.
+sound.Volume = 0.45 -- Derp (I have quality speakers you might need to change this.)
+sound.Pitch = 1 --Speed of Playback.
+sound.Looped = false
+sound.archivable = false
+
+sound.Parent = game.Workspace
+
+wait()
+
+sound:play()
 
 --Loadstrings (they will become loadstrings soom lmfao)
 
