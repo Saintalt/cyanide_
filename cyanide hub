@@ -4,6 +4,9 @@
 local sound = Instance.new("Sound")
 sound.SoundId = "http://www.roblox.com/asset/?id=9102707443"
 sound:Play()
+if not sound.IsLoaded then
+	sound.Loaded:wait()
+end
 
 --Loadstrings (they will become loadstrings soom lmfao)
 
