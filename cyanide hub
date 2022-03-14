@@ -61,7 +61,13 @@ end
 local Luxtl = loadstring(game:HttpGet("https://raw.githubusercontent.com/xCeptd/UiLib/main/Source.lua"))()
 local ver = "Aq8HZx2ioR"
 local Luxt = Luxtl.CreateWindow("Cyanide Hub", 6105620301)
+
 local mainTab = Luxt:Tab("Main", 6087485864)
+local dd = mainTab:Section("Update Notes")
+dd:Label("Current Version: Aq8HZx2ioR (BETA)")
+dd:Label("Recent Update: N/A")
+dd:Label("Update Notes: N/A")
+dd:Label("A Word From The Devs: Thanks for using our hub! Goto info for more about us!")
 
 if ver ~= "Aq8HZx2ioR" then 
     lcp:Kick("You Are Using An Outdated Version Of Cyanide, Discord Invite Has been Copied To Your Clipboard.")
@@ -158,6 +164,38 @@ ss:Button(
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Saintalt/cyanide_/main/cyz_fly"))()
     end
 )
+local ss = autoQTab:Section("Giveable Items")
+ss:Button(
+    "Click TP Tool",
+    function()
+        mouse = lcp:GetMouse()
+        tool = Instance.new("Tool")
+        tool.RequiresHandle = false
+        tool.Name = "Click Teleport"
+        tool.Activated:connect(function()
+        local pos = mouse.Hit+Vector3.new(0,2.5,0)
+        pos = CFrame.new(pos.X,pos.Y,pos.Z)
+        lcp.Character.HumanoidRootPart.CFrame = pos
+        end)
+        tool.Parent = lcp.Backpack
+    end
+)
+ss:Button(
+    "Btools",
+    function()
+        local tool1 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+        local tool2 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+        local tool3 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+        local tool4 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+        local tool5 = Instance.new("HopperBin",game.Players.LocalPlayer.Backpack)
+        tool1.BinType = "Clone"
+        tool2.BinType = "GameTool"
+        tool3.BinType = "Hammer"
+        tool4.BinType = "Script"
+        tool5.BinType = "Grab"
+    end
+)
+
 local ss = autoQTab:Section("Extras (Useful)")
 ss:Button(
     "Tase Bypass",
@@ -197,22 +235,7 @@ kk:TextBox(
      end
 )
 
-local kk = Misc:Section("Click TP")
-kk:Button(
-    "Click TP Tool",
-    function()
-        mouse = lcp:GetMouse()
-        tool = Instance.new("Tool")
-        tool.RequiresHandle = false
-        tool.Name = "Click Teleport"
-        tool.Activated:connect(function()
-        local pos = mouse.Hit+Vector3.new(0,2.5,0)
-        pos = CFrame.new(pos.X,pos.Y,pos.Z)
-        lcp.Character.HumanoidRootPart.CFrame = pos
-        end)
-        tool.Parent = lcp.Backpack
-    end
-)
+
 local kk = Misc:Section("Executable Admins/Explorers")
 kk:Button(
     "Infinite Yield",
@@ -252,6 +275,19 @@ kk:Button(
     end
 end
 )
+kk:Button(
+    "Destroy all doors",
+    function()
+        Workspace.Prison_Cellblock.doors:Destroy()
+			
+			for i,v in pairs(workspace:GetChildren())do
+					if v.Name == "Doors" then
+				v:Destroy()
+			end
+	end
+    end
+)
+
 
 
 
@@ -294,10 +330,60 @@ xx:Button(
                 m.MaxAmmo = math.huge
                 m.CurrentAmmo = math.huge
                 m.AutoFire = true
-                m.FireRate = 0.05
+                m.FireRate = 0.5
                 m.Distance = math.huge
         end)
 
+local xx = combatTab:Section("Fun")
+xx:Button(
+    "Super Punch",
+    function()
+        mainRemotes = game.ReplicatedStorage
+        meleeRemote = mainRemotes['meleeEvent']
+        mouse = lcp:GetMouse()
+        punching = false
+        cooldown = false
+        
+        function punch()
+        cooldown = true
+        local part = Instance.new("Part", lcp.Character)
+        part.Transparency = 1
+        part.Size = Vector3.new(5, 2, 3)
+        part.CanCollide = false
+        local w1 = Instance.new("Weld", part)
+        w1.Part0 = lcp.Character.Torso
+        w1.Part1 = part
+        w1.C1 = CFrame.new(0,0,2)
+        part.Touched:connect(function(hit)
+        if game.Players:FindFirstChild(hit.Parent.Name) then
+        local plr = game.Players:FindFirstChild(hit.Parent.Name)
+        if plr.Name ~= lcp.Name then
+        part:Destroy()
+        
+        for i = 1,100 do
+        meleeRemote:FireServer(plr)
+        end
+        end
+        end
+        end)
+        
+        wait(1)
+        cooldown = false
+        part:Destroy()
+        end
+        
+        
+        mouse.KeyDown:connect(function(key)
+        if cooldown == false then
+        if key:lower() == "f" then
+        
+        punch()
+        
+        end
+        end
+        end)
+        end)
+    
 --Credits
 local creditsTab = Luxt:Tab("Credits")
 local cf = creditsTab:Section("Creators")
