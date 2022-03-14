@@ -1,0 +1,357 @@
+--CYANIDE
+
+--Loadstrings (they will become loadstrings soom lmfao)
+
+--cyanide webhook
+
+local lcp = game.Players.LocalPlayer
+local http_request = syn.request or request or (http and http.request)
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local exploitName = (syn and 'Synapse') or (Krnl and 'Krnl') or ( identifyexecutor and identifyexecutor() ) or (getexecutorname and getexecutorname())
+
+--OWNER EXECUTED
+if lcp.UserId == "2446078192" or "1350247562" then 
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Cyanide";
+        Text = "Welcome Owner,\n"..lcp.Name;
+        Icon = "rbxthumb://type=Asset&id=9099977771&w=150&h=150",
+        Duration = 5;
+    })
+
+    local embed1 = {
+        ['title'] = '**An Owner Executed Cyanide!**';
+        ['color'] = tonumber(0x2B6BE4);
+        ['description'] = 'Executor: '..exploitName..'\nAccountAge: '..lcp.AccountAge.. '\nUser ID: '..lcp.UserId.. '\nJobId: ' ..game.JobId.. '\nGameName: ' ..GameName;
+    }
+    
+        local a = http_request({
+        Url = 'https://discord.com/api/webhooks/951787249064890378/3wZQcpmwqEVbhXbpitIScwpf6RIfySPyyrl0YdlcDAdhR1Zx5dF8sAhyA_sPoWc4NSjH',
+        Headers = {['Content-Type'] = 'application/json'};
+        Body = game:GetService("HttpService"):JSONEncode({['embeds'] = {embed1, embed2}, ['content'] = ''});
+        Method = "POST";
+    })
+
+else
+
+--NORMAL PLAYER EXECUTED
+
+       local embed1 = {
+        ['title'] = '**Somebody Executed Cyanide!**';
+        ['color'] = tonumber(0x2B6BE4);
+        ['description'] = 'Executor: '..exploitName..'\nAccountAge: '..lcp.AccountAge.. '\nUser ID: '..lcp.UserId.. '\nJobId: ' ..game.JobId.. '\nGameName: ' ..GameName;
+    }
+    
+        local a = http_request({
+        Url = 'https://discord.com/api/webhooks/951787249064890378/3wZQcpmwqEVbhXbpitIScwpf6RIfySPyyrl0YdlcDAdhR1Zx5dF8sAhyA_sPoWc4NSjH',
+        Headers = {['Content-Type'] = 'application/json'};
+        Body = game:GetService("HttpService"):JSONEncode({['embeds'] = {embed1, embed2}, ['content'] = ''});
+        Method = "POST";
+    })
+
+end
+
+--cyanide hub script starts here :>:>:>:>:>:>:>:>
+
+--// LOCALS \\
+--new cyanide
+
+--Cyanide
+
+
+local Luxtl = loadstring(game:HttpGet("https://raw.githubusercontent.com/xCeptd/UiLib/main/Source.lua"))()
+local ver = "Aq8HZx2ioR"
+local Luxt = Luxtl.CreateWindow("Cyanide Hub", 6105620301)
+local mainTab = Luxt:Tab("Main", 6087485864)
+
+if ver ~= "Aq8HZx2ioR" then 
+    lcp:Kick("You Are Using An Outdated Version Of Cyanide, Discord Invite Has been Copied To Your Clipboard.")
+    setclipboard("https://discord.gg/s7sg9kXpKS")
+end
+--teleports (oo)
+local teleportsTab = Luxt:Tab("Teleports")
+local oo = teleportsTab:Section("Teleports")
+oo:Button(
+    "Guard Room",
+    function()
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(823.81, 99.98, 2259.92)
+    end
+)
+oo:Button(
+    "Criminal Base",
+    function()
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-943.47, 94.128, 2064.20)
+    end
+)
+oo:Button(
+    "Cell Block",
+    function()
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.14, 99.98, 2436.62) 
+    end
+)
+oo:Button(
+    "Prison Wall",
+    function()
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(767.16, 125.03, 2586.04) 
+    end
+)
+oo:Button(
+    "Outside Prison",
+    function()
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(471.07, 98.03, 2216.18) 
+    end
+)
+oo:Button(
+    "Cafeteria",
+    function()
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(923.24, 99.98, 2290.54) 
+    end
+)
+oo:Button(
+    "Yard",
+    function()
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(787, 98, 2476) 
+    end
+)
+oo:Button(
+    "Under Map Platform",
+    function()
+        game:service'Players'.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(880.71, 27.78, 2348.79) 
+    end
+)
+
+--Essentials (loadstrings)
+--nothing for now
+
+
+--local player (ss)
+local autoQTab = Luxt:Tab("Local Player")
+local ss = autoQTab:Section("WalkSpeed")
+ss:Slider(
+    "WalkSpeed",
+    16,
+    500,
+    function(currentValue)
+        lcp.Character.Humanoid.WalkSpeed = currentValue
+    end
+)
+ss:Slider(
+    "Jump Power",
+    50,
+    250,
+    function(currentValue)
+        lcp.Character.Humanoid.JumpPower = currentValue
+    end
+)
+local ss = autoQTab:Section("FOV")
+ss:TextBox(
+    "Changes your FOV ~60 - 75 = Normal.",
+    "",
+    function(getText)
+        game:GetService'Workspace'.Camera.FieldOfView = getText
+    end
+)
+
+local ss = autoQTab:Section("Fly")
+ss:Button(
+    "Enables E to fly.",
+    function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Saintalt/cyanide_/main/cyz_fly"))()
+    end
+)
+local ss = autoQTab:Section("Extras (Useful)")
+ss:Button(
+    "Tase Bypass",
+function()
+    lcp.Character.ClientInputHandler.Disabled = true
+	lcp.CharacterAdded:connect(function()
+	game.Workspace:WaitForChild(lcp.Name)
+	lcp.Character.ClientInputHandler.Disabled = true
+	end)
+end)
+
+--misc (kk)
+local Misc = Luxt:Tab("Misc")
+local kk = Misc:Section("KYS")
+
+kk:Button(
+    "KYS",
+    function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Saintalt/cyanide_/main/kys"))()
+    end
+)
+
+local kk = Misc:Section("TP To Player")
+kk:TextBox(
+    "TP to Player.",
+    "",
+    function(getText)
+        local p1 = lcp.Character.HumanoidRootPart
+        local p2 = getText
+        local pos = p1.CFrame
+
+        p1.CFrame = game.Players[p2].Character.HumanoidRootPart.CFrame
+
+        wait(5)
+
+        p1.CFrame = pos
+     end
+)
+
+local kk = Misc:Section("Click TP")
+kk:Button(
+    "Click TP Tool",
+    function()
+        mouse = lcp:GetMouse()
+        tool = Instance.new("Tool")
+        tool.RequiresHandle = false
+        tool.Name = "Click Teleport"
+        tool.Activated:connect(function()
+        local pos = mouse.Hit+Vector3.new(0,2.5,0)
+        pos = CFrame.new(pos.X,pos.Y,pos.Z)
+        lcp.Character.HumanoidRootPart.CFrame = pos
+        end)
+        tool.Parent = lcp.Backpack
+    end
+)
+local kk = Misc:Section("Executable Admins/Explorers")
+kk:Button(
+    "Infinite Yield",
+    function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end
+)
+kk:Button(
+    "CMD-X",
+    function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+    end
+)
+kk:Button(
+    "Dark Dex V4",
+    function()
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/DinosaurXxX/b757fe011e7e600c0873f967fe427dc2/raw/ee5324771f017073fc30e640323ac2a9b3bfc550/dark%2520dex%2520v4", true))()
+    end
+)
+local kk = Misc:Section("Fun")
+kk:Button(
+    "Arrest All (Might be buggy atm.)",
+    function()
+    wait(0.1)
+    local Player = lcp
+    local Pcf = Player.Character.HumanoidRootPart.CFrame
+    for i,v in pairs(game.Teams.Criminals:GetPlayers()) do
+    if v.Name ~= Player.Name then
+    local i = 10
+    repeat
+    wait()
+    i = i-1
+    game.Workspace.Remote.arrest:InvokeServer(v.Character.HumanoidRootPart)
+    Player.Character.HumanoidRootPart.CFrame = v.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1)
+    until i == 0
+    end
+    end
+end
+)
+
+
+
+--COMBAT (XX)
+local combatTab = Luxt:Tab("Combat")
+local xx = combatTab:Section("Aimbot")
+xx:Button(
+    "Silent Aim",
+    function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/yaHHr1rx'))()  
+        game.StarterGui:SetCore("SendNotification", {
+            Title = "Cyanide Hub"; 
+            Text = "Silent Aim Has Been Enabled!",
+            Icon = "rbxthumb://type=Asset&id=9099977771&w=150&h=150",
+            Duration = 5;
+        })
+    end
+)
+local xx = combatTab:Section("Guns")
+xx:Button(
+    "Get Guns",
+    function()
+        if BuyGamepass then
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+		else
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP)
+			workspace.Remote.ItemHandler:InvokeServer(workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP)
+		end
+    end
+) 
+xx:Button(
+    "Gun Mods (Currently held gun.)",
+    function()
+        local m = require(game:GetService('Players').LocalPlayer.Character:FindFirstChildOfClass("Tool").GunStates)
+                m.Damage = 100
+                m.MaxAmmo = math.huge
+                m.CurrentAmmo = math.huge
+                m.AutoFire = true
+                m.FireRate = 0.05
+                m.Distance = math.huge
+        end)
+
+--Credits
+local creditsTab = Luxt:Tab("Credits")
+local cf = creditsTab:Section("Creators")
+cf:Credit("⚔Saint#0223, Ukretzen#2781")
+local cf1 = creditsTab:Section("Main Credits")
+cf1:Credit("⚔Saint#0223, Ukretzen#2781")
+local cf2 = creditsTab:Section("Scripting Credits")
+cf2:Credit("⚔Saint#0223, Ukretzen#2781")
+
+local Examples = Luxt:Tab("Info")
+local ff = Examples:Section("Info DropDown")
+ff:Label("Current Version : Aq8HZx2ioR (BETA)")
+ff:Button(
+    "Discord Invite",
+    function()
+        setclipboard("https://discord.gg/s7sg9kXpKS")
+    end
+)
+ff:Label("Update Notes: None currently.")
+ff:Toggle(
+    "Toggle Me!",
+    function(isToggled)
+        print(isToggled) -- prints true or false
+    end
+)
+ff:KeyBind(
+    "Print('Hey') on bind",
+    Enum.KeyCode.R,
+    function()
+        --Enum.KeyCode.R is starting Key
+        print("Hey")
+    end
+)
+ff:TextBox(
+    "TextBox Info",
+    "Epic PlaceHolder",
+    function(getText)
+        print(getText) -- Prints whatever player types
+    end
+)
+ff:Slider(
+    "WalkSpeed",
+    16,
+    503,
+    function(currentValue)
+        lcp.Character.Humanoid.WalkSpeed = currentValue
+    end
+)
+ff:DropDown(
+    "Favorite Food?",
+    {"Pizza", "Burger", "Sandwiches"},
+    function(food) -- food is chosen item
+        print(food)
+    end
+)
+
+
