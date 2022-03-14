@@ -3,7 +3,7 @@
 local sound = Instance.new("Sound")
 
 sound.Name = "Sound"
-sound.SoundId = "http://www.roblox.com/asset/?id=9102707443" -- Song ID at end.
+sound.SoundId = "http://www.roblox.com/asset/?id=9103132413" -- Song ID at end.
 sound.Volume = 0.75 -- Derp (I have quality speakers you might need to change this.)
 sound.Pitch = 1 --Speed of Playback.
 sound.Looped = false
